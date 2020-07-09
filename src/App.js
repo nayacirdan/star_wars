@@ -6,16 +6,20 @@ import StarshipPage from "./pages/StarshipPage";
 import PlanetPage from "./pages/PlanetPage";
 import {useDispatch} from "react-redux";
 import {getAllFilms} from "./actions/actionsCreators";
+import {useHistory} from 'react-router'
 
 function App() {
     const dispatch=useDispatch();
-    useEffect(()=>{
+/*    useEffect(()=>{
         dispatch(getAllFilms())
-    },[])
+    },[])*/
+    const history=useHistory();
+    console.log('history',history);
   return (
     <div className="App">
       <header className="App-header">
         Welcome to STAR WARS APP
+          <div onClick={()=>history.push('/')}>LOGO</div>
       </header>
         <Switch>
             <Route exact path='/' component={HomePage}/>
