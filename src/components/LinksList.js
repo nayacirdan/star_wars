@@ -11,7 +11,7 @@ const LinksList = ({arr, listName}) => {
     const dispatch=useDispatch()
     let linksArr = [];
 
-    const listArrOFLinks=useSelector(state=>state.currentItem[`${listName}Links`]);
+    const listArrOFLinks=useSelector(state=>state.currentItem[listName]);
 
     useEffect(()=>{
         if(listArrOFLinks){
@@ -24,10 +24,8 @@ const LinksList = ({arr, listName}) => {
     if (listName === 'allFilms') {
         const filmsSimpleArr = arr.map(el => {
             return {
-                title: el.title,
+                ...el,
                 id: makeIdFromUrl(el.url),
-                planetsLinks:el.planets,
-                starshipsLinks:el.starships
             }
         });
 
@@ -45,7 +43,7 @@ const LinksList = ({arr, listName}) => {
                 item.id=makeIdFromUrl(item.url)
                 return (
                     <ListItem key={`${listName}-${item.id}`}>
-                        <Link to={`/${listName}/${item.id}`} onClick={()=>dispatch(setCurrentItem(item))}>{item.name}</Link>
+                        <Link to={`/${listName}/${item.id}`} onClick={()=>dispatch(setCurrentItem(item))}>{item.name?item.name:item.title}</Link>
                     </ListItem>
                 )
             })

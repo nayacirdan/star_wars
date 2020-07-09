@@ -8,7 +8,7 @@ const FilmPage = () => {
     return (
         <div>
             FilmPage
-            <Typography variant="h1">{currentFilm}</Typography>
+            <Typography variant="h1">Film: {currentFilm}</Typography>
             <Typography variant="h2">Planets</Typography>
             <LinksList listName='planets'/>
             <Typography variant="h2">Starships</Typography>
