@@ -1,15 +1,11 @@
 import Actions from "../actions/actionsConstants";
 
-const initialState={
-    currentFilm:{},
-    currentPlanet:{},
-    currentStarship:{}
-}
+const initialState={}
 
 const currentItem=(state=initialState, action)=>{
     switch (action.type) {
-        case Actions.SET_CURRENT_FILM:{
-            return{...state, currentFilm: action.payload}
+        case Actions.SET_CURRENT_ITEM:{
+            return action.payload
         }
         case Actions.SET_CURRENT_PLANET:{
             return {...state, currentPlanet: action.payload};

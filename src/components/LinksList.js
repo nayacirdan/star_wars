@@ -4,14 +4,14 @@ import ListItem from "@material-ui/core/ListItem";
 import {Link} from "react-router-dom";
 import {makeIdFromUrl} from "../utils/utils";
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrentFilm, getItemInfoByLink, setCurrentPlanet} from "../actions/actionsCreators";
+import {setCurrentFilm, getItemInfoByLink, setCurrentPlanet, setCurrentItem} from "../actions/actionsCreators";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const LinksList = ({arr, listName}) => {
     const dispatch=useDispatch()
     let linksArr = [];
 
-    const listArrOFLinks=useSelector(state=>state.currentItem.currentFilm[`${listName}Links`]);
+    const listArrOFLinks=useSelector(state=>state.currentItem[`${listName}Links`]);
 
     useEffect(()=>{
         if(listArrOFLinks){
@@ -34,7 +34,7 @@ const LinksList = ({arr, listName}) => {
         linksArr = filmsSimpleArr.map(film=>{
             return (
                 <ListItem key={`film-${film.id}`}>
-                    <Link to={`/films/${film.id}`} onClick={()=>dispatch(setCurrentFilm(film))}>{film.title}</Link>
+                    <Link to={`/films/${film.id}`} onClick={()=>dispatch(setCurrentItem(film))}>{film.title}</Link>
                 </ListItem>
             )
         })
@@ -45,7 +45,7 @@ const LinksList = ({arr, listName}) => {
                 item.id=makeIdFromUrl(item.url)
                 return (
                     <ListItem key={`${listName}-${item.id}`}>
-                        <Link to={`/${listName}/${item.id}`} onClick={()=>dispatch(setCurrentPlanet(item))}>{item.name}</Link>
+                        <Link to={`/${listName}/${item.id}`} onClick={()=>dispatch(setCurrentItem(item))}>{item.name}</Link>
                     </ListItem>
                 )
             })

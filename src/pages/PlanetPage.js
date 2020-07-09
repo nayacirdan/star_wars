@@ -4,7 +4,7 @@ import LinksList from "../components/LinksList";
 import {useSelector} from "react-redux";
 
 const PlanetPage = () => {
-    const currentPlanet=useSelector(state=>state.currentItem.currentPlanet.name);
+    const currentPlanet=useSelector(state=>state.currentItem.name);
     console.log('currentPlanet',currentPlanet);
     return (
         <div>

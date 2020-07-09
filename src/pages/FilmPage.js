@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import LinksList from "../components/LinksList";
 
 const FilmPage = () => {
-    const currentFilm=useSelector(state=>state.currentItem.currentFilm.title)
+    const currentFilm=useSelector(state=>state.currentItem.title)
     return (
         <div>
             FilmPage
