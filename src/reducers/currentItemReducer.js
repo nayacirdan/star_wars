@@ -7,9 +7,12 @@ const currentItem=(state=initialState, action)=>{
         case Actions.SET_CURRENT_ITEM:{
             return action.payload
         }
-        case Actions.SET_CURRENT_PLANET:{
-            return {...state, currentPlanet: action.payload};
+        case Actions.SET_CURRENT_ITEM_FORCED:{
+            return action.payload
         }
+        /*case Actions.SET_CURRENT_PLANET:{
+            return {...state, currentPlanet: action.payload};
+        }*/
         /*case Actions.GET_ITEM_INFO_BY_LINK:{
             debugger;
             console.log(action.storeName);

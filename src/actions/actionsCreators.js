@@ -21,7 +21,14 @@ export const setCurrentPlanet=(planet)=>(dispatch)=>{
 export const setCurrentItem=(item)=>(dispatch)=>{
     dispatch({type:Actions.SET_CURRENT_ITEM, payload: item})
 }
-
+export const setCurrentItemForced=(locationPath)=>(dispatch)=>{
+    debugger;
+    const apiUrl=`https://swapi.dev/api${locationPath}/`;
+    axios.get(apiUrl)
+        .then((response)=>{
+            dispatch({type:Actions.SET_CURRENT_ITEM_FORCED, payload:response.data})
+        });
+}
 export const getItemInfoByLink=(linksArr, listName)=>(dispatch)=>{
     const promises=linksArr.map(el=>{
        return axios.get(el)
