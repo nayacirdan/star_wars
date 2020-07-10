@@ -11,10 +11,16 @@ const useStyles = makeStyles((theme) => ({
     container: {
         padding: 20,
         backgroundColor: 'rgba(155,155,155,0.13)',
-        marginBottom: 100
+        marginBottom: 100,
+        '@media (max-width:600px)': {
+            padding: '20px 5px',
+        }
     },
     column: {
-        width: '30%'
+        width: '30%',
+        '@media (max-width:600px)': {
+            width: '45%',
+        }
     }
 }));
 

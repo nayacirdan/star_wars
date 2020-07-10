@@ -17,7 +17,10 @@ const useStyles = makeStyles((theme) => ({
     },
     searchForm: {
         '& > *': {
-            width: '45ch',
+            width: '40ch',
+            '@media (max-width:600px)': {
+                width: '25ch',
+            }
         },
     },
     searchInput: {}

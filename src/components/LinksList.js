@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     link: {
         color: theme.palette.primary.main,
         textDecoration: "none",
+        '@media (max-width:600px)': {
+            fontSize: 10,
+        },
         '&:visited': {
             color: yellow['700']
         }

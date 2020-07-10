@@ -13,7 +13,10 @@ import {useHistory} from 'react-router'
 const useStyles = makeStyles((theme) => ({
     root: {},
     header: {
-        padding: 20
+        padding: 20,
+        '@media (max-width:600px)': {
+            padding: 10,
+        }
     }
 }));
 

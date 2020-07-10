@@ -26,16 +26,25 @@ const outerTheme = createMuiTheme({
             color: '#fff',
             marginBottom: 20,
             marginTop: 20,
-            textShadow: '1px 1px 10px rgba(0, 0, 0, 1)'
+            textShadow: '1px 1px 10px rgba(0, 0, 0, 1)',
+            '@media (max-width:600px)': {
+                fontSize: 20,
+            }
         },
         h2: {
             fontSize: '25',
             color: '#fff',
             fontWeight: 'bold',
-            textShadow: '1px 1px 10px rgba(0, 0, 0, 1)'
+            textShadow: '1px 1px 10px rgba(0, 0, 0, 1)',
+            '@media (max-width:600px)': {
+                fontSize: 18,
+            }
         },
         body1: {
             color: '#fff',
+            '@media (max-width:600px)': {
+                fontSize: 10,
+            }
         }
 
     },
