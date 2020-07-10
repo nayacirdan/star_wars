@@ -6,8 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #0e0e0e;
-  background-image: url("/backgrounds/star-wars-screensaver-003.jpg");
- /* You can choose another image from public/backgrounds directory*/
+  background-image: url("https://nayacirdan.github.io/star_wars/star-wars-screensaver-003.jpg");
+ /* You can choose another image from https://nayacirdan.github.io/star_wars/ */
 
   background-repeat: no-repeat;
 }
