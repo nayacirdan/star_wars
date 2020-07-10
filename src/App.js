@@ -7,28 +7,35 @@ import PlanetPage from "./pages/PlanetPage";
 import {useDispatch} from "react-redux";
 import {getAllFilms} from "./actions/actionsCreators";
 import {useHistory} from 'react-router'
+import Logo from "./components/Logo";
+import Tooltip from "@material-ui/core/Tooltip";
+import Button from "@material-ui/core/Button";
 
 function App() {
-    const dispatch=useDispatch();
-/*    useEffect(()=>{
-        dispatch(getAllFilms())
-    },[])*/
-    const history=useHistory();
-    console.log('history',history);
-  return (
-    <div className="App">
-      <header className="App-header">
-        Welcome to STAR WARS APP
-          <div onClick={()=>history.push('/')}>LOGO</div>
-      </header>
-        <Switch>
-            <Route exact path='/' component={HomePage}/>
-            <Route exact path='/films/:id' component={FilmPage}/>
-            <Route exact path='/starships/:id' component={StarshipPage}/>
-            <Route exact path='/planets/:id' component={PlanetPage}/>
-        </Switch>
-    </div>
-  );
+    const dispatch = useDispatch();
+    /*    useEffect(()=>{
+            dispatch(getAllFilms())
+        },[])*/
+    const history = useHistory();
+    console.log('history', history);
+    return (
+        <div className="App">
+            <header className="App-header">
+                Welcome to STAR WARS APP
+                <Tooltip title="Home" aria-label="Home">
+                    <Button>
+                        <Logo onClick={() => history.push('/')} size='50' fillColorMain='#CCC' fillColorCircle='#ccc'/>
+                    </Button>
+                </Tooltip>
+            </header>
+            <Switch>
+                <Route exact path='/' component={HomePage}/>
+                <Route exact path='/films/:id' component={FilmPage}/>
+                <Route exact path='/starships/:id' component={StarshipPage}/>
+                <Route exact path='/planets/:id' component={PlanetPage}/>
+            </Switch>
+        </div>
+    );
 }
 
 export default App;
