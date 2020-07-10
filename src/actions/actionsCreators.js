@@ -11,13 +11,15 @@ export const getAllFilms=()=>(dispatch)=>{
         });
 }
 
+/*
 export const setCurrentFilm=(film)=>(dispatch)=>{
     dispatch({type:Actions.SET_CURRENT_FILM, payload: film})
 }
+*/
 
-export const setCurrentPlanet=(planet)=>(dispatch)=>{
+/*export const setCurrentPlanet=(planet)=>(dispatch)=>{
     dispatch({type:Actions.SET_CURRENT_PLANET, payload: planet})
-}
+}*/
 export const setCurrentItem=(item)=>(dispatch)=>{
     dispatch({type:Actions.SET_CURRENT_ITEM, payload: item})
 }

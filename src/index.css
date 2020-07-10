@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0e0e0e;
+  background-image: url("/star-wars-screensaver-003.jpg");
+
+  background-repeat: no-repeat;
 }
 
 code {
