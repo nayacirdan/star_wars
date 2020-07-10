@@ -4,64 +4,53 @@ import LinksList from "../components/LinksList";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllFilms, getSearchedFilms} from "../actions/actionsCreators";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {useHistory} from 'react-router'
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from '@material-ui/core/styles';
-import yellow from '@material-ui/core/colors/yellow'
-import grey from '@material-ui/core/colors/grey'
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    root: {},
+    container: {
+        padding: 20,
+        backgroundColor: 'rgba(155,155,155,0.13)',
+        marginBottom: 100
     },
-    container:{
-        padding:20,
-        backgroundColor:'rgba(155,155,155,0.13)',
-        marginBottom:100
-    },
-    searchForm:{
+    searchForm: {
         '& > *': {
             width: '45ch',
         },
     },
-    searchInput:{
-
-    }
+    searchInput: {}
 }));
 
 const HomePage = () => {
-    const dispatch=useDispatch();
-    const history=useHistory();
-    const classes=useStyles();
-    history.listen(()=>{
-        console.log('history changed')
-    })
+    const dispatch = useDispatch();
+    const classes = useStyles();
 
-    const handleChange=(ev)=>{
+
+    const handleChange = (ev) => {
         dispatch(getSearchedFilms(ev.target.value))
     }
-    useEffect(()=>{
-        debugger;
+    useEffect(() => {
         dispatch(getAllFilms())
-    },[])
+    }, [dispatch])
 
-    const allFilms=useSelector(state=>state.allFilms);
-    const searchedFilms=useSelector(state=>state.searchedFilms.results);
-    debugger;
+    const allFilms = useSelector(state => state.allFilms);
+    const searchedFilms = useSelector(state => state.searchedFilms.results);
+
     return (
         <Container>
             <Grid container direction='column' justify='center' alignItems='center' className={classes.container}>
                 <form noValidate autoComplete="off" className={classes.searchForm}>
                     <TextField id="search-field"
                                label="Type film name..."
-                               onChange={(ev)=>handleChange(ev)}
+                               onChange={(ev) => handleChange(ev)}
                                className={classes.searchInput}
-
-                               />
+                    />
                 </form>
 
-                {searchedFilms? <LinksList arr={searchedFilms} listName='allFilms'/> : (
-                    allFilms? <LinksList arr={allFilms} listName='allFilms'/>:<CircularProgress />)}
+                {searchedFilms ? <LinksList arr={searchedFilms} listName='allFilms'/> : (
+                    allFilms ? <LinksList arr={allFilms} listName='allFilms'/> : <CircularProgress/>)}
             </Grid>
 
         </Container>

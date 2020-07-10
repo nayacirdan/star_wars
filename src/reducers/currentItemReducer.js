@@ -10,17 +10,7 @@ const currentItem=(state=initialState, action)=>{
         case Actions.SET_CURRENT_ITEM_FORCED:{
             return action.payload
         }
-        /*case Actions.SET_CURRENT_PLANET:{
-            return {...state, currentPlanet: action.payload};
-        }*/
-        /*case Actions.GET_ITEM_INFO_BY_LINK:{
-            debugger;
-            console.log(action.storeName);
-            console.log(state.currentFilm);
-            console.log(state.currentFilm[action.storeName]);
-            const updatedFilm={...state.currentFilm, [action.storeName]:action.payload}
-            return {...state, currentFilm: updatedFilm}
-        }*/
+
         default: return {...state}
     }
 }

@@ -1,4 +1,4 @@
-export const makeIdFromUrl=(url)=>{
-    const urlArr=url.split('/');
-    return urlArr[urlArr.length-2];
+export const makeIdFromUrl = (url) => {
+    const urlArr = url.split('/');
+    return urlArr[urlArr.length - 2];
 }
