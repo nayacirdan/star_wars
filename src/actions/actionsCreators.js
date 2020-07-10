@@ -1,5 +1,6 @@
 import Actions from "./actionsConstants";
 import axios from "axios";
+import {changeUrls} from '../utils/utils'
 
 export const getAllFilms=()=>(dispatch)=>{
     axios.get('https://swapi.dev/api/films/')
@@ -21,7 +22,8 @@ export const setCurrentItemForced=(locationPath)=>(dispatch)=>{
 }
 
 export const getItemInfoByLink=(linksArr, listName)=>(dispatch)=>{
-    const promises=linksArr.map(el=>{
+    let newLinksArr=changeUrls(linksArr);
+    const promises=newLinksArr.map(el=>{
        return axios.get(el)
             .then(res=>res.data);
     });
