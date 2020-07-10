@@ -42,3 +42,16 @@ export const getItemInfoByLink=(linksArr, listName)=>(dispatch)=>{
         dispatch({type:Actions.GET_ITEM_INFO_BY_LINK, payload:itemInfoArr, storeName:listName})
     });
 }
+
+export const getSearchedFilms=(searchValue)=>(dispatch)=>{
+    debugger;
+    const apiUrl=`https://swapi.dev/api/films/?search=${searchValue}`;
+    axios.get(apiUrl)
+        .then((response)=>{
+            dispatch({type:Actions.GET_SEARCHED_FILMS, payload:response.data})
+        });
+}
+
+export const setSearchedFilmsToNull=()=>(dispatch)=>{
+    dispatch({type:Actions.SET_SEARCHED_FILMS_TO_NULL});
+}
